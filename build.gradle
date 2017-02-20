@@ -21,11 +21,11 @@ android {
 
 version = '1.0.0'
 
-// 项目的主页
+// project site url,example:https://xxxx
 def siteUrl = 'https://github.com/simlion/SimpleLibrary'
-// Git仓库的url
+// Git site url,example:https://xxxx.git
 def gitUrl = 'https://github.com/simlion/SimpleLibrary.git'
-// Maven Group ID for the artifact，一般填你唯一的包名
+// Maven Group ID for the artifact，example:xx.xx.xx
 group = 'com.simlion.simplelibrary'
 
 install {
@@ -46,7 +46,8 @@ install {
                 }
                 developers {
                     developer {
-                        id 'Simlion'        //填写的一些基本信息
+                        //Basic info
+                        id 'Simlion'
                         name 'Simlion'
                         email 'heroesgu0521@gmail.com'
                     }
@@ -89,8 +90,10 @@ bintray {
     key = properties.getProperty("bintray.apikey")
     configurations = ['archives']
     pkg {
+        //Bintray Repositories
         repo = "maven"
-        name = "simplelibrary"    //发布到JCenter上的项目名字
+        //Project Name
+        name = "simplelibrary"
         websiteUrl = siteUrl
         vcsUrl = gitUrl
         licenses = ["Apache-2.0"]
@@ -98,7 +101,7 @@ bintray {
     }
 }
 
-javadoc { //jav doc采用utf-8编码否则会报“GBK的不可映射字符”错误
+javadoc {
     options{
         encoding "UTF-8"
         charSet 'UTF-8'
